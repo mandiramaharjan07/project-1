@@ -2,7 +2,7 @@
 
 :root{
    --purple:#603f3f;
-   --red:#ffe6e3;
+   --red:#ff341e;
    --orange:#b6771295;
    --black:#333;
    --white:#fff;
@@ -168,8 +168,8 @@ color: var(--black);
    color:#333;
 }
 .share{
-   background-color: var(--purple);
-   color:#333;
+ padding:10px;
+  
 }
 .header .header-2{
    background-color: var(--white);
@@ -199,11 +199,14 @@ color: var(--black);
 .header .header-2 .flex .navbar a{
    margin:0 1rem;
    font-size: 2rem;
-   color:var(--light-color);
+   background-color:var(--light-color);
+   color:var(--light-bg);
+  padding:20px;
+  border-radius: 20%;
 }
 
 .header .header-2 .flex .navbar a:hover{
-   color:var(--purple);
+   color:var(--light-bg);
    text-decoration: underline;
 }
 
@@ -295,11 +298,11 @@ color: var(--black);
 }
 .contact form{
    margin:0 auto;
-   background-color: var(--light-bg);
+   background-color: rgb(80, 51, 149);
    border-radius: .5rem;
    border:var(--border);
-   padding:2rem;
-   max-width: 50rem;
+   padding:1rem;
+   max-width: 80rem;
    margin:0 auto;
    text-align: center;
 }
@@ -308,7 +311,7 @@ color: var(--black);
    font-size: 2.5rem;
    text-transform: uppercase;
    margin-bottom: 1rem;
-   color:var(--black);
+   color:var(--purple);
 }
 
 .contact form .box{
@@ -323,10 +326,58 @@ color: var(--black);
 }
 
 .contact form textarea{
-   height: 20rem;
+   height: 10rem;
    resize: none;
 }
 
+.products .box-container{
+   max-width: 1200px;
+   margin:0 auto;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 30rem);
+   align-items: flex-start;
+   gap:1.5rem;
+   justify-content: center;
+}
+
+.products .box-container .box{
+   border-radius: .5rem;
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+   padding:2rem;
+   text-align: center;
+   border:var(--border);
+   /* position: relative; */
+}
+
+.products .box-container .box .image{
+   height: 30rem;
+}
+
+.products .box-container .box .name{
+   padding:1rem 0;
+   font-size: 2rem;
+   color:var(--black);
+}
+
+.products .box-container .box .qty{
+   width: 100%;
+   padding:1.2rem 1.4rem;
+   border-radius: .5rem;
+   border:var(--border);
+   margin:1rem 0;
+   font-size: 2rem;
+}
+
+.products .box-container .box .price{
+   position: absolute;
+   /* top:1rem; left:1rem; */
+   border-radius: .5rem;
+   padding:1rem;
+   font-size: 2.5rem;
+   color:var(--white);
+   background-color: var(--red);
+}
 .footer{
    background-color: var(--light-bg);
 }

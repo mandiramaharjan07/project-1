@@ -27,6 +27,16 @@ if(isset($_POST['submit'])){
 }
 
 ?>
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,8 +48,26 @@ if(isset($_POST['submit'])){
 
 <link rel="stylesheet" href="./css/style.css">
 </head>
+<style>
+   .form-container form{
+      height:600px;
+      width:400px;
+   }
+   .form-container form h3{
+      margin-top:40px;
+   }
+   .form-container form .box{
+      margin-top:20px;
+   }
+   .form-container form .btn{
+      margin-top:40px;
+   }
+   .form-container form p{
+      margin-top:40px;
+   }
+</style>
 <body>
- 
+
 <?php
 if(isset($message)){
    foreach($message as $message){
@@ -60,15 +88,13 @@ if(isset($message)){
       <input type="email" name="email" placeholder="enter your email" required class="box">
       <input type="password" name="password" placeholder="enter your password" required class="box">
       <input type="password" name="cpassword" placeholder="confirm your password" required class="box">
-      <!-- <select name="user_type" class="box">
+       <!-- <select name="user_type" class="box">
          <option value="user">user</option>
          <option value="admin">admin</option>
       </select> -->
       <input type="submit" name="submit" value="register now" class="btn">
       <p>already have an account? <a href="./login.php">login now</a></p>
    </form>
-
 </div>
-
 </body>
 </html>

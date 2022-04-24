@@ -4,11 +4,9 @@ include 'config.php';
 session_start();
 
 if(isset($_POST['submit'])){
-
  
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
-
 
    $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass'") or die('query failed');
 
@@ -35,10 +33,9 @@ if(isset($_POST['submit'])){
    }else{
       $message[] = 'incorrect email or password';
    }
-
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,6 +47,24 @@ if(isset($_POST['submit'])){
 
 <link rel="stylesheet" href="./css/style.css">
 </head>
+<style>
+   .form-container form{
+      height:500px;
+      width:400px;
+   }
+   .form-container form h3{
+      margin-top:40px;
+   }
+   .form-container form .box{
+      margin-top:20px;
+   }
+   .form-container form .btn{
+      margin-top:40px;
+   }
+   .form-container form p{
+      margin-top:40px;
+   }
+</style>
 <body>
  
 <?php
@@ -65,19 +80,15 @@ if(isset($message)){
 }
 ?>
     <div class="form-container">
-
    <form action="./login.php" method="post">
       <h3>Log In</h3>
      
       <input type="email" name="email" placeholder="enter your email" required class="box">
       <input type="password" name="password" placeholder="enter your password" required class="box">
      
-     
       <input type="submit" name="submit" value="login" class="btn">
       <p>don't have an account? <a href="./register.php">signup</a></p>
    </form>
-
 </div>
-
 </body>
 </html>

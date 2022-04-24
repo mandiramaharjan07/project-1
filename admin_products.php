@@ -45,7 +45,7 @@ if(isset($_POST['add_product'])){
     mysqli_query($conn, "DELETE FROM `products` WHERE id = '$delete_id'") or die('query failed');
     header('location:admin_products.php');
  }
- 
+
  if(isset($_POST['update_product'])){
  
     $update_p_id = $_POST['update_p_id'];
@@ -69,11 +69,11 @@ if(isset($_POST['add_product'])){
           unlink('uploaded_img/'.$update_old_image);
        }
     }
- 
     header('location:admin_products.php');
- 
  }
 ?>
+
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -117,15 +117,11 @@ if(isset($_POST['add_product'])){
       <?php
          }
       }else{
-         echo '<p class="empty">no products added yet!</p>';
-      }
+         echo '<p class="empty">no products added yet!</p>';}
       ?>
    </div>
-
 </section>
-
 <section class="edit-product-form">
-
    <?php
       if(isset($_GET['update'])){
          $update_id = $_GET['update'];
@@ -150,12 +146,8 @@ if(isset($_POST['add_product'])){
          echo '<script>document.querySelector(".edit-product-form").style.display = "none";</script>';
       }
    ?>
-
 </section>
 </section>
-
-
 <script src="./js/admin_script.js"></script>
-
     </body>
     </html>

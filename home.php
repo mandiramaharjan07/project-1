@@ -41,17 +41,42 @@ if(isset($_POST['add_to_cart'])){
  
     <!-- custom css file link  -->
     <link rel="stylesheet" href=" ./css/style.css">
- 
+ <style>
+    .title{
+       font-size:30px;
+       align-items:center;
+       margin-left:600px;
+       padding:20px;
+
+    }
+    .content1{
+       font-size:15px;
+       margin-left:200px;
+       align-items:center;
+    }
+    .content1 h3{
+      font-size:25px;
+      margin-left:400px;
+      padding:20px;
+      align-items:center;
+    }
+    .content1 a{
+      font-size:25px;
+      margin-left:400px;
+     
+      align-items:center;
+    }
+
+ </style>
  </head>
  <body>
     
- <?php include 'header.php'; ?>
+ <?php include 'nextheader.php'; ?>
  
  <section class="home">
  
     <div class="content">
-       <h3>“Today a reader, tomorrow a leader.”
-</h3>
+       <h3>“Today a reader, tomorrow a leader.”</h3>
        <p>Wear the old coat, and buy a new book.</p>
        <a href="about.php" class="white-btn">discover more</a>
     </div>
@@ -88,7 +113,7 @@ if(isset($_POST['add_to_cart'])){
     </div>
  
     <div class="load-more" style="margin-top: 2rem; text-align:center">
-       <a href="shop.php" class="option-btn">load more</a>
+       <a href="shop.php" class="white-btn">load more</a>
     </div>
  
  </section>
@@ -101,7 +126,7 @@ if(isset($_POST['add_to_cart'])){
           <img src="images/about-img.jpg" alt="">
        </div>
  
-       <div class="content">
+       <div class="content1">
           <h3>About us</h3>
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit quos enim minima ipsa dicta officia corporis ratione saepe sed adipisci?</p>
           <a href="about.php" class="btn">read more</a>
@@ -113,16 +138,13 @@ if(isset($_POST['add_to_cart'])){
  
  <section class="home-contact">
  
-    <div class="content">
+    <div class="content1">
        <h3>Have any questions?</h3>
        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque cumque exercitationem repellendus, amet ullam voluptatibus?</p>
        <a href="contact.php" class="white-btn">contact us</a>
     </div>
  
  </section>
- 
- 
- 
  
  
  <?php include 'footer.php'; ?>
@@ -132,5 +154,6 @@ if(isset($_POST['add_to_cart'])){
  
  </body>
  </html>
+
 
 

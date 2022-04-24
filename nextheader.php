@@ -41,7 +41,7 @@
            <a href="https://www.facebook.com/Second-hand-bookstore-105149452177412/" class="fab fa-facebook"></a>
            <a href="https://www.instagram.com/mandiramh/" class="fab fa-instagram"></a>
         </div>
-        <p>  <a href="login.php">Login</a> <a href="register.php">register</a></p>
+        <!-- <p>  <a href="login.php">Login</a> <a href="register.php">register</a></p> -->
       </div>
    </div>
 <div class="header-2">
