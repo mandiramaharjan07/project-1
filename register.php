@@ -8,7 +8,7 @@ if(isset($_POST['submit'])){
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
    $cpass = mysqli_real_escape_string($conn, md5($_POST['cpassword']));
-   $user_type = $_POST['user_type'];
+   $user_type = "user";
 
    $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass'") or die('query failed');
 
@@ -36,7 +36,6 @@ if(isset($_POST['submit'])){
 
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,9 +44,9 @@ if(isset($_POST['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
 <link rel="stylesheet" href="./css/style.css">
 </head>
+<body>
 <style>
    .form-container form{
       height:600px;
@@ -66,8 +65,6 @@ if(isset($_POST['submit'])){
       margin-top:40px;
    }
 </style>
-<body>
-
 <?php
 if(isset($message)){
    foreach($message as $message){
@@ -76,12 +73,10 @@ if(isset($message)){
          <span>'.$message.'</span>
          <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
       </div>
-      ';
-   }
+      ';}
 }
 ?>
     <div class="form-container">
-
    <form action="./register.php" method="post">
       <h3>Sign Up</h3>
       <input type="text" name="name" placeholder="enter your name" required class="box">

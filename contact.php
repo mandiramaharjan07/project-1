@@ -52,7 +52,7 @@ if(isset($_POST['send'])){
 </style>
 <body>
 
-<?php include 'header.php'; ?>
+<?php include 'nextheader.php'; ?>
 <!-- <div class="heading">
    <h3>contact us</h3>
    <p> <a href="home.php">home</a> / contact </p>

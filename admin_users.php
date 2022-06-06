@@ -26,6 +26,26 @@ if(isset($_GET['delete'])){
 
 <link rel="stylesheet" href=" ./css/admin_style.css">
     </head>
+    <style>
+         :root{
+   --purple:#603f3f;
+   --red:#BA0020FF;
+   --orange:#8F5B34;
+   --black:#333;
+   --white:#fff;
+   --light-color:#666;
+   --light-white:#ccc;
+   --light-bg:#f5f5f5;
+   --border:.1rem solid var(--black);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+   h1{
+   font-size:40px;
+   text-align:center;
+   padding:20px;
+   
+}
+</style>
     <body>
         <?php include 'admin_header.php'; ?>
         <section class="users">
@@ -51,7 +71,7 @@ if(isset($_GET['delete'])){
 
 </section>
 
-<script src="./js/admin_script.js"></script>
+<script src="admin_script.js"></script>
 
     </body>
     </html>

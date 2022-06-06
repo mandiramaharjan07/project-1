@@ -7,7 +7,18 @@
    <title>Document</title>
 </head>
 <style>
-
+        :root{
+   --purple:#603f3f;
+   --red:#BA0020FF;
+   --orange:#8F5B34;
+   --black:#333;
+   --white:#fff;
+   --light-color:#666;
+   --light-white:#ccc;
+   --light-bg:#f5f5f5;
+   --border:.1rem solid var(--black);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
    .header .header-2 .flex .navbar a{
    margin:0 1rem;
    font-size: 2rem;
@@ -49,29 +60,30 @@
          <a href="home.php" class="logo">Second Hand BookStores</a>
 
          <nav class="navbar">
-            <a href="home.php">home</a>
-            <a href="about.php">about</a>
-            <a href="shop.php">products</a>
-            <a href="contact.php">contact</a>
-            <a href="orders.php">orders</a>
+            <a href="home.php">Home</a>
+            <a href="about.php">About</a>
+            <a href="login.php">Buy Books</a>
+            <a href="contact.php">Contact</a>
+            <a href="orders.php">Orders</a>
          </nav>
 
          <div class="icons">
             <div id="menu-btn" class="fas fa-bars"></div>
          <a href="search_page.php" class="fas fa-search"></a>
-            <div id="user-btn" class="fas fa-user"></div>
-            <?php
+            <!-- <div id="user-btn" class="fas fa-user" ></div> -->
+            <!-- <a href="login.php">  <div id="user-btn" class="fas fa-user" </div></a> -->
+            <!-- <?php
                $select_cart_number = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
                $cart_rows_number = mysqli_num_rows($select_cart_number); 
             ?>
-            <a href="cart.php"> <i class="fas fa-shopping-cart"></i> <span>(<?php echo $cart_rows_number; ?>)</span> </a>
-         </div>
+            <a href="cart.php"> <i class="fas fa-shopping-cart"></i> <span>(<?php echo "0" ?>)</span> </a>
+         </div> -->
 
-         <div class="user-box">
+         <!-- <div class="user-box">
             <p>username : <span><?php echo $_SESSION['user_name']; ?></span></p>
             <p>email : <span><?php echo $_SESSION['user_email']; ?></span></p>
             <a href="logout.php" class="delete-btn">logout</a>
-         </div>
+         </div> -->
       </div>
    </div>
 

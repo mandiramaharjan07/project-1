@@ -17,17 +17,37 @@ if(!isset($admin_id)){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Admin panel</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
 <link rel="stylesheet" href=" ./css/admin_style.css">
+
     </head>
+    <style> 
+h1{
+   font-size:40px;
+   text-align:center;
+   padding:20px;
+   
+}
+.dashboard .box-container .box{
+   border-radius: .5rem;
+   padding:2rem;
+   background-color:var(--white);
+   box-shadow: var(--box-shadow);
+   border:var(--border);
+   text-align: center;
+}
+.dashboard .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
+   gap:2.5rem;
+   max-width: 1100px;
+   margin:0 auto;
+   align-items: flex-start;
+}
+</style>
     <body>
         <?php include 'admin_header.php'; ?>
-   
-<!-- dasboard starts -->
 <section class="dashboard">
     <h1 class="heading">Dashboard </h1>
-
-
     <div class="box-container">
     <div class="box">
          <?php
@@ -79,13 +99,13 @@ if(!isset($admin_id)){
 
       <div class="box">
          <?php 
-            $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE user_type = 'user'") or die('query failed');
+            $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE user_type='user'") or die('query failed');
             $number_of_users = mysqli_num_rows($select_users);
          ?>
          <h3><?php echo $number_of_users; ?></h3>
          <p>normal users</p>
       </div>
-
+      
       <div class="box">
          <?php 
             $select_admins = mysqli_query($conn, "SELECT * FROM `users` WHERE user_type = 'admin'") or die('query failed');
@@ -94,7 +114,6 @@ if(!isset($admin_id)){
          <h3><?php echo $number_of_admins; ?></h3>
          <p>admin users</p>
       </div>
-
       <div class="box">
          <?php 
             $select_account = mysqli_query($conn, "SELECT * FROM `users`") or die('query failed');
@@ -103,7 +122,6 @@ if(!isset($admin_id)){
          <h3><?php echo $number_of_account; ?></h3>
          <p>total accounts</p>
       </div>
-
       <div class="box">
          <?php 
             $select_messages = mysqli_query($conn, "SELECT * FROM `message`") or die('query failed');
@@ -112,13 +130,8 @@ if(!isset($admin_id)){
          <h3><?php echo $number_of_messages; ?></h3>
          <p>new messages</p>
       </div>
-
     </div>
 </section>
-
-
-<!-- dashboard ends -->
-<script src="./js/admin_script.js"></script>
-
+<script src="admin_script.js"></script>
     </body>
     </html>

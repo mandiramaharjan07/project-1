@@ -2,8 +2,8 @@
 
 :root{
    --purple:#603f3f;
-   --red:#b81f0f;
-   --orange:#ff961e;
+   --red:#f78275;
+   --orange:#927557;
    --black:#333;
    --white:#fff;
    --light-color:#666;
@@ -117,6 +117,7 @@ color: var(--black);
 }
 .option-btn{
 background-color: var(--orange);
+
 }
 .delete-btn{
    background-color: var(--red);
@@ -157,7 +158,7 @@ section{
    color:var(--black);
 }
 .header .flex .logo span{
-   color: var(--purple);
+   color: rgb(98, 98, 142);
 }
 .header .flex .navbar a{
 margin:0 1rem;
@@ -235,6 +236,7 @@ align-items: center;
 .dashboard .box-container .box h3{
    font-size: 5rem;
    color:var(--black); 
+   
 }
 
 .dashboard .box-container .box p{

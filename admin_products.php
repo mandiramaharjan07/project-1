@@ -18,7 +18,6 @@ if(isset($_POST['add_product'])){
     $image_folder = 'uploaded_img/'.$image;
  
     $select_product_name = mysqli_query($conn, "SELECT name FROM `products` WHERE name = '$name'") or die('query failed');
- 
     if(mysqli_num_rows($select_product_name) > 0){
        $message[] = 'product name already added';
     }else{
@@ -85,13 +84,35 @@ if(isset($_POST['add_product'])){
 
 <link rel="stylesheet" href=" ./css/admin_style.css">
     </head>
+    <style>
+     :root{
+   --purple:#603f3f;
+   --red:#BA0020FF;
+   --orange:#8F5B34;
+   --black:#333;
+   --white:#fff;
+   --light-color:#666;
+   --light-white:#ccc;
+   --light-bg:#f5f5f5;
+   --border:.1rem solid var(--black);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+   h1{
+   font-size:40px;
+   text-align:center;
+   padding:20px;
+   
+}
+.form{
+   padding-bottom:1000px;
+}
+</style>
     <body>
         <?php include 'admin_header.php'; ?>
         <section class="add-products">
 
 <h1 class="title">shop products</h1>
-
-<form action="" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data" class="form">
    <h3>add product</h3>
    <input type="text" name="name" class="box" placeholder="enter product name" required>
    <input type="number" min="0" name="price" class="box" placeholder="enter product price" required>
@@ -99,9 +120,7 @@ if(isset($_POST['add_product'])){
    <input type="submit" value="add product" name="add_product" class="btn">
 </form>
 <section class="show-products">
-
    <div class="box-container">
-
       <?php
          $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
          if(mysqli_num_rows($select_products) > 0){
@@ -110,7 +129,7 @@ if(isset($_POST['add_product'])){
       <div class="box">
          <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
          <div class="name"><?php echo $fetch_products['name']; ?></div>
-         <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
+         <div class="price">RS<?php echo $fetch_products['price']; ?>/-</div>
          <a href="admin_products.php?update=<?php echo $fetch_products['id']; ?>" class="option-btn">update</a>
          <a href="admin_products.php?delete=<?php echo $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
       </div>
@@ -136,7 +155,7 @@ if(isset($_POST['add_product'])){
       <input type="text" name="update_name" value="<?php echo $fetch_update['name']; ?>" class="box" required placeholder="enter product name">
       <input type="number" name="update_price" value="<?php echo $fetch_update['price']; ?>" min="0" class="box" required placeholder="enter product price">
       <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
-      <input type="submit" value="update" name="update_product" class="btn">
+      <input type="submit" value="update"  name="update_product" class="btn">
       <input type="reset" value="cancel" id="close-update" class="option-btn">
    </form>
    <?php
@@ -148,6 +167,6 @@ if(isset($_POST['add_product'])){
    ?>
 </section>
 </section>
-<script src="./js/admin_script.js"></script>
+<script src="admin_script.js"></script>
     </body>
     </html>

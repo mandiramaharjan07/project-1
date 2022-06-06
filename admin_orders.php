@@ -23,6 +23,16 @@ if(isset($_POST['update_order'])){
     mysqli_query($conn, "DELETE FROM `orders` WHERE id = '$delete_id'") or die('query failed');
     header('location:admin_orders.php');
  }
+
+//  if(isset($_GET['update_order'])){
+//    $delete_id = $_GET['delete'];
+//    mysqli_query($conn, "DELETE FROM `orders` WHERE id = '$delete_id'") or die('query failed');
+//    header('location:admin_orders.php');
+// }
+
+// $value = $_POST("update_order");
+// console.log(value);
+
  
 ?>
     <!DOCTYPE html>
@@ -33,16 +43,36 @@ if(isset($_POST['update_order'])){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>orders</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
 <link rel="stylesheet" href=" ./css/admin_style.css">
     </head>
+    <style>
+  :root{
+   --purple:#603f3f;
+   --red:#BA0020FF;
+   --orange:#8F5B34;
+   --black:#333;
+   --white:#fff;
+   --light-color:#666;
+   --light-white:#ccc;
+   --light-bg:#f5f5f5;
+   --border:.1rem solid var(--black);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+   h1{
+   font-size:40px;
+   text-align:center;
+   padding:20px;
+   
+}
+
+</style>
+
+
     <body>
         <?php include 'admin_header.php'; ?>
-   
         <section class="orders">
-
 <h1 class="title">placed orders</h1>
-
 <div class="box-container">
    <?php
    $select_orders = mysqli_query($conn, "SELECT * FROM `orders`") or die('query failed');
@@ -61,13 +91,19 @@ if(isset($_POST['update_order'])){
       <p> payment method : <span><?php echo $fetch_orders['method']; ?></span> </p>
       <form action="" method="post">
          <input type="hidden" name="order_id" value="<?php echo $fetch_orders['id']; ?>">
-         <select name="update_payment">
-            <option value="" selected disabled><?php echo $fetch_orders['payment_status']; ?></option>
-            <option value="pending">pending</option>
-            <option value="completed">completed</option>
+         <?php if($fetch_orders['payment_status']!='completed'){
+            ?>
+         }
+         <select name="update_payment" id="select" >
+            <option value=""> Select one</option>
+            <option <?php if($fetch_orders['payment_status']== 'pending'){ echo "selected";} ?> value="pending">pending </option>
+            
+            <option <?php if($fetch_orders['payment_status']== 'completed'){echo "selected";}   ?> value="completed" >completed</option>
          </select>
-         <input type="submit" value="update" name="update_order" class="option-btn">
+         <input type="submit" value="update" name="update_order"  class="option-btn">
+         
          <a href="admin_orders.php?delete=<?php echo $fetch_orders['id']; ?>" onclick="return confirm('delete this order?');" class="delete-btn">delete</a>
+         <?php }?>
       </form>
    </div>
    <?php
@@ -77,9 +113,8 @@ if(isset($_POST['update_order'])){
    }
    ?>
 </div>
-
 </section>
-<script src="./js/admin_script.js"></script>
+<script src="admin_script.js"></script>
 
     </body>
     </html>

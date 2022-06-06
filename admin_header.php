@@ -10,15 +10,38 @@ if(isset($message)){
    }
 }
 ?>
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+<style>
+    <body>
+  
+     .navbar {
+   margin:0 1rem;
+   font-size: 4rem;
+   background-color: #666;;
+   color:var(--light-bg);
+  padding:12px;
+  border-radius: 10%;
+}
+</style>
 <header class="header">
     <div class="flex">
-        <a href="admin_page.php" class="logo"> Admin <span>Panel</span></a>
+        <a href="admin_page.php" class="logo"> Admin</a>
         <nav class="navbar">
-            <a href="admin_page.php">home</a>
-            <a href="admin_products.php">products</a>
-            <a href="admin_orders.php">orders</a>
-            <a href="admin_users.php">users</a>
-            <a href="admin_contacts.php">messages</a>
+            <a href="admin_page.php" style="background-color:#666;  padding:12px;
+  border-radius: 10%; color:var(--light-bg); ">Home </a>
+            <a href="admin_products.php" style="background-color:#666;  padding:12px;
+  border-radius: 10%; color:var(--light-bg);"> Products</a>
+            <a href="admin_orders.php" style="background-color:#666;  padding:12px;
+  border-radius: 10%; color:var(--light-bg);">Orders</a>
+            <a href="admin_users.php" style="background-color:#666;  padding:12px;
+  border-radius: 10%; color:var(--light-bg);">Users</a>
+            <a href="admin_contact.php" style="background-color:#666;  padding:12px;
+  border-radius: 10%; color:var(--light-bg);">Messages</a>
         </nav>
         <div class="icons">
             <div id="menu-btn" class="fas fa-bars"></div>
@@ -31,4 +54,5 @@ if(isset($message)){
             <a href="logout.php" class="delete-btn">Logout</a>
         </div>
     </div>
-</header>
+</header></body>
+</html>

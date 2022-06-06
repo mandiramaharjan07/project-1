@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
          $_SESSION['user_name'] = $row['name'];
          $_SESSION['user_email'] = $row['email'];
          $_SESSION['user_id'] = $row['id'];
-         header('location: ./home.php');
+         header('location: ./afterLogin.php');
       }
      
    }else{
@@ -66,7 +66,6 @@ if(isset($_POST['submit'])){
    }
 </style>
 <body>
- 
 <?php
 if(isset($message)){
    foreach($message as $message){

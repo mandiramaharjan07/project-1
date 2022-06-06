@@ -7,7 +7,18 @@
    <title>Document</title>
 </head>
 <style>
-
+        :root{
+   --purple:#603f3f;
+   --red:#BA0020FF;
+   --orange:#8F5B34;
+   --black:#333;
+   --white:#fff;
+   --light-color:#666;
+   --light-white:#ccc;
+   --light-bg:#f5f5f5;
+   --border:.1rem solid var(--black);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
    .header .header-2 .flex .navbar a{
    margin:0 1rem;
    font-size: 2rem;
@@ -30,6 +41,7 @@
    font-size: 2rem;
    color:#333;
 }
+
 </style>
 <body>
    
@@ -46,14 +58,14 @@
    </div>
 <div class="header-2">
       <div class="flex">
-         <a href="home.php" class="logo">Second Hand BookStores</a>
+         <a href="afterLogin.php" class="logo">Second Hand BookStores</a>
 
          <nav class="navbar">
-            <a href="home.php">home</a>
-            <a href="about.php">about</a>
-            <a href="shop.php">products</a>
-            <a href="contact.php">contact</a>
-            <a href="orders.php">orders</a>
+            <a href="afterLogin.php">Home</a>
+            <a href="about.php">About</a>
+            <a href="shop.php">Products</a>
+            <a href="contact.php">Contact</a>
+            <a href="orders.php">Orders</a>
          </nav>
 
          <div class="icons">

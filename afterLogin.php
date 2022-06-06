@@ -1,8 +1,10 @@
 <?php
 include 'config.php';
+
 session_start();
 
-// $user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user_id'];
+
 // if(isset($user_id)){
 //     header('location: ./login.php');
 // }
@@ -21,8 +23,11 @@ if(isset($_POST['add_to_cart'])){
        mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, quantity, image) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('query failed');
        $message[] = 'product added to cart!';
     }
+ 
  }
+ 
  ?>
+ 
  <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -48,7 +53,7 @@ if(isset($_POST['add_to_cart'])){
     .content1{
        text-align:center;
        font-size:15px;
-       /* color:white; */
+      
        /* margin-left:200px;
        align-items:center; */
     }
@@ -64,6 +69,17 @@ if(isset($_POST['add_to_cart'])){
       */
       /* align-items:center; */
     }
+    .products .box-container{
+  
+  max-width: 1700px;
+  margin:0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 30rem);
+  align-items: flex-start;
+  gap:1.5rem;
+  justify-content: center;
+}
+
      .products .box-container .box{
    border-radius: .5rem;
    background-color: var(--white);
@@ -85,29 +101,34 @@ if(isset($_POST['add_to_cart'])){
 }
 
 
-
  </style>
  </head>
- <body> 
- <?php include 'header.php'; ?>
+ <body>
+    
+ <?php include 'nextheader.php'; ?>
+ 
  <section class="home">
+ 
     <div class="content">
        <h3>“Today a reader, tomorrow a leader.”</h3>
        <p>Wear the old coat, and buy a book.</p>
        <a href="about.php" class="white-btn">discover more</a>
     </div>
+ 
  </section>
+ 
  <section class="products">
  
     <h1 class="title">Latest products</h1>
-    <div class="box-container">
+ 
+    <div class="box-container" >
  
        <?php  
           $select_products = mysqli_query($conn, "SELECT * FROM `products` LIMIT 9") or die('query failed');
           if(mysqli_num_rows($select_products) > 0){
              while($fetch_products = mysqli_fetch_assoc($select_products)){
        ?>
-      <form action="" method="post" class="box">
+      <form action="" method="post" class="box" style="gap:5rem;">
        <img class="image" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
        <div class="name"><?php echo $fetch_products['name']; ?></div>
        <div class="price">RS<?php echo $fetch_products['price']; ?>/-</div>
@@ -124,34 +145,42 @@ if(isset($_POST['add_to_cart'])){
        }
        ?>
     </div>
+ 
     <div class="load-more" style="margin-top: 2rem; text-align:center">
        <a href="shop.php" class="white-btn">load more</a>
     </div>
+ 
  </section>
+ 
  <section class="about">
  
-    <div class="flex">
-       <div class="image">
-          <img src="./img/abouts.jpg" alt="">
-       </div>
-       <div class="content1">
-          <h3>About us</h3>
-          <p style="line-height:4rem; font-size:20px;">
-Second Hand Book Store is an online book store. It is created with an aim to create the largest community of book readers in Nepal. In today’s time when most of the people are fond of new technologies, there are still many people who are sticking to the traditional method when it comes to reading.
- People still prefer reading hard copy books rather than e-book like Kindle by Amazon where we can read, store and can buy many e-books inside it. </p>
-          <a href="about.php" class="btn">read more</a>
-       </div>
+ <div class="flex">
+    <div class="image">
+       <img src="./img/abouts.jpg" alt="">
     </div>
- </section>
- <section class="home-contact">
     <div class="content1">
-       <h3 style="color:white">Have any questions?</h3>
-       <p  style="color:white ; padding:40px;font-size:20px">If you have any confusion or problem you can contact us. Feel free to contact us . Thank you!</p>
-       <a href="contact.php" class="white-btn">contact us</a>
+       <h3>About us</h3>
+       <p style="line-height:4rem; font-size:20px;">
+Second Hand Book Store is an online book store. It is created with an aim to create the largest community of book readers in Nepal. In today’s time when most of the people are fond of new technologies, there are still many people who are sticking to the traditional method when it comes to reading.
+People still prefer reading hard copy books rather than e-book like Kindle by Amazon where we can read, store and can buy many e-books inside it. </p>
+       <a href="about.php" class="btn">read more</a>
     </div>
- </section>
+ </div>
+</section>
+<section class="home-contact">
+ <div class="content1">
+    <h3 style="color:white">Have any questions?</h3>
+    <p  style="color:white ; padding:40px; font-size:20px">If you have any confusion or problem you can contact us. Feel free to contact us . Thank you!</p>
+    <a href="contact.php" class="white-btn">contact us</a>
+ </div>
+</section>
+ 
+ 
  <?php include 'footer.php'; ?>
+ 
+ <!-- custom js file link  -->
  <script src="./js/script.js"></script>
+ 
  </body>
  </html>
 
